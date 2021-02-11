@@ -20,34 +20,10 @@ public class Televisor extends Electrodomestico {
 
     @Override
     protected void calcularPrecio() {
-        // Precio base
-        this.precio = calcularPrecioConsumo() + calcularPrecioProcedencia();
+        super.calcularPrecio();
 
         // Si el tamaño es superior a 40 pulgadas y tiene sintonizador TDT
         this.precio += (calcularPrecioTamano() + calcularPrecioTDT());
-    }
-
-    private int calcularPrecioConsumo() {
-        // Precio de acuerdo al consumo
-        switch (this.consumo) {
-            case 'A':
-                 return 450000;
-            case 'B':
-                return 350000;
-            case 'C':
-                return 250000;
-            default:
-                return 0;
-        }
-    }
-
-    private int calcularPrecioProcedencia() {
-        // Precio de acuerdo a la procedencia
-        if (this.procedencia.equals("Nacional")) {
-            return 250000;
-        } else {
-            return 350000;
-        }
     }
 
     private int calcularPrecioTamano() {
