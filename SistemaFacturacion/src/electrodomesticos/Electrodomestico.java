@@ -1,6 +1,6 @@
 package electrodomesticos;
 
-public abstract class Electrodomestico {
+public class Electrodomestico {
     protected char consumo;
     protected String procedencia;
     protected int precio;
