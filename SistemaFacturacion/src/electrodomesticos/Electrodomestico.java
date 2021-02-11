@@ -22,7 +22,7 @@ public abstract class Electrodomestico {
         return precio;
     }
 
-    protected void setPrecio(int precio) {
-        this.precio = precio;
+    protected void calcularPrecio() {
+
     }
 }
