@@ -5,7 +5,7 @@ public class Electrodomestico {
     protected String procedencia;
     protected int precio;
 
-    protected Electrodomestico(char consumo, String procedencia) {
+    public Electrodomestico(char consumo, String procedencia) {
         this.consumo = consumo;
         this.procedencia = procedencia;
         this.precio = 0;
