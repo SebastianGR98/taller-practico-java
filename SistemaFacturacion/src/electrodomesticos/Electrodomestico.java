@@ -8,6 +8,7 @@ public class Electrodomestico {
     protected Electrodomestico(char consumo, String procedencia) {
         this.consumo = consumo;
         this.procedencia = procedencia;
+        this.precio = 0;
     }
 
     public char getConsumo() {
