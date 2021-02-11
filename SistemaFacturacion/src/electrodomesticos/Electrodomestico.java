@@ -1,11 +1,11 @@
 package electrodomesticos;
 
-public class Electrodomestico {
+public abstract class Electrodomestico {
     protected char consumo;
     protected String procedencia;
     protected int precio;
 
-    public Electrodomestico(char consumo, String procedencia) {
+    protected Electrodomestico(char consumo, String procedencia) {
         this.consumo = consumo;
         this.procedencia = procedencia;
     }
