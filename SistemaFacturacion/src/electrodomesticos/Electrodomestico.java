@@ -9,6 +9,7 @@ public class Electrodomestico {
         this.consumo = consumo;
         this.procedencia = procedencia;
         this.precio = 0;
+        calcularPrecio();
     }
 
     public char getConsumo() {
@@ -49,5 +50,11 @@ public class Electrodomestico {
         } else {
             return 350000;
         }
+    }
+
+    public void mostrarInformacion() {
+        System.out.println("Consumo: " + getConsumo());
+        System.out.println("Procedencia: " + getProcedencia());
+        System.out.println("Precio: " + getPrecio());
     }
 }

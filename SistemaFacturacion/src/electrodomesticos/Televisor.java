@@ -8,6 +8,7 @@ public class Televisor extends Electrodomestico {
         super(consumo, procedencia);
         this.tamano = tamano;
         this.tieneTDT = tieneTDT;
+        calcularPrecio();
     }
 
     public int getTamano() {
@@ -40,5 +41,17 @@ public class Televisor extends Electrodomestico {
             return 250000;
         }
         return 0;
+    }
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Tamaño: " + getTamano());
+
+        if (isTieneTDT()) {
+            System.out.println("Tiene TDT");
+        } else {
+            System.out.println("No tiene TDT");
+        }
     }
 }

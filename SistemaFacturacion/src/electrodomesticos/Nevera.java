@@ -6,6 +6,7 @@ public class Nevera extends Electrodomestico{
     public Nevera(char consumo, String procedencia, int capacidad) {
         super(consumo, procedencia);
         this.capacidad = capacidad;
+        calcularPrecio();
     }
 
     public int getCapacidad() {
@@ -21,5 +22,11 @@ public class Nevera extends Electrodomestico{
                 this.precio += (this.precio * 0.05);
             }
         }
+    }
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Capacidad: " + getCapacidad());
     }
 }

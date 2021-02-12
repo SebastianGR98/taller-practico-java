@@ -3,21 +3,26 @@ package facturacion;
 import electrodomesticos.Electrodomestico;
 import electrodomesticos.Nevera;
 import electrodomesticos.Televisor;
-
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Factura {
     private HashMap<Integer, Electrodomestico> electrodomesticos;
     private int totalElectrodomesticos;
+    private int numeroElectrodomesticos;
     private int totalTelevisores;
+    private int numeroTelevisores;
     private int totalNeveras;
+    private int numeroNeveras;
 
     public Factura() {
         this.electrodomesticos = new HashMap<Integer, Electrodomestico>();
         this.totalElectrodomesticos = 0;
+        this.numeroElectrodomesticos = 0;
         this.totalTelevisores = 0;
+        this.numeroTelevisores = 0;
         this.totalNeveras = 0;
+        this.numeroNeveras = 0;
         facturar();
     }
 
@@ -38,6 +43,7 @@ public class Factura {
         }
 
         ingresarElectrodomesticos(entrada, numeroElectrodomesticos);
+        totalizar();
     }
 
     private char ingresarConsumo(Scanner entrada) {
@@ -129,6 +135,7 @@ public class Factura {
 
     private void ingresarElectrodomestico(char consumo, String procedencia, int i) {
         Electrodomestico electrodomestico = new Electrodomestico(consumo, procedencia);
+        electrodomestico.mostrarInformacion();
         this.electrodomesticos.put(i, electrodomestico);
     }
 
@@ -171,6 +178,7 @@ public class Factura {
         }
 
         Electrodomestico televisor = new Televisor(consumo, procedencia, tamano, tieneTDT);
+        televisor.mostrarInformacion();
         this.electrodomesticos.put(i, televisor);
     }
 
@@ -190,6 +198,31 @@ public class Factura {
         }
 
         Electrodomestico nevera = new Nevera(consumo, procedencia, capacidad);
+        nevera.mostrarInformacion();
         this.electrodomesticos.put(i, nevera);
+    }
+
+    private void totalizar() {
+        for (int i : this.electrodomesticos.keySet()) {
+            if (this.electrodomesticos.get(i) instanceof Televisor) {
+                this.totalTelevisores += this.electrodomesticos.get(i).getPrecio();
+                this.numeroTelevisores++;
+            } else if (this.electrodomesticos.get(i) instanceof Nevera) {
+                this.totalNeveras += this.electrodomesticos.get(i).getPrecio();
+                this.numeroNeveras++;
+            }
+
+            this.totalElectrodomesticos += this.electrodomesticos.get(i).getPrecio();
+            this.numeroElectrodomesticos++;
+        }
+
+        System.out.println("----------------------------------------------------------------");
+        System.out.println("Número de televisores: " + this.numeroTelevisores);
+        System.out.println("Número de neveras: " + this.numeroNeveras);
+        System.out.println("Número de electrodomesticos: " + this.numeroElectrodomesticos);
+        System.out.println("Valor total de televisores: " + this.totalTelevisores);
+        System.out.println("Valor total de neveras: " + this.totalNeveras);
+        System.out.println("Valor total de electrodomesticos: " + this.totalElectrodomesticos);
+        System.out.println("----------------------------------------------------------------");
     }
 }
